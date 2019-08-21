@@ -1,28 +1,34 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <van-swipe :autoplay="3000" indicator-color="white">
+      <van-swipe-item v-for='(i, index) in 4' :key='index'>
+        <img src="https://tempim-1256796114.cos-website.ap-shanghai.myqcloud.com/placeholder/400x300">
+      </van-swipe-item>
+    </van-swipe>
+    <van-button>按钮</van-button>
+    <van-button type="default">默认按钮</van-button>
+    <van-button type="primary">主要按钮</van-button>
+    <van-button type="info">信息按钮</van-button>
+    <van-button type="warning">警告按钮</van-button>
+    <van-button type="danger">危险按钮</van-button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { Swipe, SwipeItem } from 'vant';
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    'van-swipe': Swipe,
+    'van-swipe-item': SwipeItem
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 </style>
